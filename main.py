@@ -109,9 +109,7 @@ class YouTubeDownloader:
             'progress_hooks': [self.progress_hook],
             'quiet': False,
             'no_warnings': False,
-            'ignoreerrors': True,
-            'nocheckcertificate': True,
-            'extract_flat': True,
+            'ignoreerrors': False,            'extract_flat': True,
             'postprocessors': [{
                 'key': 'FFmpegVideoConvertor',
                 'preferedformat': 'mp4',
