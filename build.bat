@@ -1,23 +1,12 @@
-:: filepath: /c:/Users/ty/Desktop/Best Programs I Created/Youtube Download Script/build.bat
 @echo off
 
 :: Change to script directory
 cd /d "%~dp0"
 
-:: Check for administrator privileges (but warn it's not recommended)
-echo Note: Administrator privileges are not required...
 echo Building in: %CD%
-echo.
-
-echo Cleaning previous build...
-:: Force delete dist folder
-taskkill /F /IM "YouTube Downloader Pro.exe" >nul 2>&1
-rd /s /q "dist" 2>nul
-rd /s /q "build" 2>nul
-del /f /q "*.spec" 2>nul
-
+if not exist ".venv\Scripts\python.exe" (echo Run setup.bat first.& exit /b 1)
 echo Building YouTube Downloader Pro...
-python -m PyInstaller ^
+".venv\Scripts\python.exe" -m PyInstaller ^
     --clean ^
     --noconfirm ^
     --name "YouTube Downloader Pro" ^
