@@ -115,3 +115,6 @@ Created by Ty
 ## License
 
 MIT License
+## HTTPS download safety
+
+The downloader no longer disables certificate verification or suppresses yt-dlp download failures. If the remote site rejects requests or requires authentication, review the displayed error and update dependencies instead of bypassing TLS. Never share cookies, tokens or credentials in bug reports.
