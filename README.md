@@ -1,5 +1,47 @@
 # YouTube Downloader Pro
 
+## Windows 11 installation (PowerShell, command by command)
+
+Install Git, Python 3.11+ and FFmpeg, with Deno recommended for YouTube's JavaScript challenges. From PowerShell, execute **each command separately**:
+
+```powershell
+winget install --id Gyan.FFmpeg.Essentials --exact
+```
+```powershell
+winget install --id DenoLand.Deno --exact
+```
+
+Close and reopen PowerShell to refresh PATH.
+
+```powershell
+git clone https://github.com/Tyler-Keesee/Youtube-download-script.git
+```
+```powershell
+Set-Location .\Youtube-download-script
+```
+```powershell
+python -m venv .venv
+```
+```powershell
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+```
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+```powershell
+.\.venv\Scripts\python.exe main.py
+```
+
+`setup.bat` is an optional shortcut for creating/reusing the same `.venv`. To build an EXE after successful setup, run `.\build.bat`. It will **not** kill running applications or delete existing spec files, but PyInstaller's `--noconfirm` can replace the same-named build output.
+
+**Important:** The original `requirements.txt` contained embedded NUL characters in the `requests` dependency, causing pip parsing errors. The corrected file is plain UTF-8. Website 403 and age-verification failures are upstream/access issues, not venv errors. An account authorized to view restricted content may be required; see yt-dlp's official FAQ. Never share cookies, passwords, or private keys.
+
+**Verification:** Dependency install and syntax checks are automated; an actual GUI window and live download must still be tested on Windows.
+
+---
+
+
+
 A professional YouTube video downloader with a modern GUI interface.
 
 ## Download Location
